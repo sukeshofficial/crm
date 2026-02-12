@@ -1,13 +1,15 @@
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs"
 import { TaskRow } from "./TaskRow"
+import { NewTodoButton } from "@/components/todo/NewTodoButton"
 import { todoItems } from "@/data/mockData"
 
 export function TodoPanel() {
   return (
     <Card>
-      <CardHeader className="pb-2">
+      <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
         <CardTitle className="text-base font-medium">To-Do</CardTitle>
+        <NewTodoButton />
       </CardHeader>
       <CardContent>
         <Tabs defaultValue="today">
