@@ -1,10 +1,13 @@
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
 import { complianceCalendarEntries } from "@/data/mockData"
 import { ArrowRight } from "lucide-react"
+import { useNavigate } from "react-router-dom"
 
 export function ComplianceCalendar() {
+  const navigate = useNavigate();
+
   return (
-    <Card>
+    <Card onClick={() => navigate("/compliance-calendar")} className="cursor-pointer">
       <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-3">
         <CardTitle className="text-base font-medium">Compliance Calendar</CardTitle>
         <ArrowRight className="h-4 w-4 text-gray-400" />

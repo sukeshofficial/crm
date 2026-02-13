@@ -1,3 +1,4 @@
+import { Link, useLocation } from "react-router-dom"
 import { cn } from "@/lib/utils"
 import {
   LayoutDashboard,
@@ -10,6 +11,7 @@ import {
   FileStack,
   Wallet,
   Calendar,
+  CalendarCheck,
   FileCheck,
   BarChart3,
   UserCog,
@@ -19,26 +21,29 @@ import {
 } from "lucide-react"
 
 const navItems = [
-  { icon: LayoutDashboard, label: "Dashboard", active: true },
-  { icon: CheckSquare, label: "Tasks" },
-  { icon: ListTodo, label: "To-Do" },
-  { icon: Users, label: "Clients" },
-  { icon: Package, label: "Client Packages", badge: "New" },
-  { icon: FileText, label: "Services & Packages" },
-  { icon: FileStack, label: "Invoices" },
-  { icon: Receipt, label: "Receipts" },
-  { icon: FileText, label: "Quotations" },
-  { icon: Wallet, label: "Expenses" },
-  { icon: Calendar, label: "Attendance" },
-  { icon: FileCheck, label: "Documents & DSC" },
-  { icon: BarChart3, label: "Reports" },
-  { icon: UserCog, label: "Users" },
-  { icon: Bell, label: "Send Notifications" },
-  { icon: Settings, label: "Settings" },
-  { icon: Globe, label: "Your Website" },
+  { icon: LayoutDashboard, label: "Dashboard", path: "/" },
+  { icon: CheckSquare, label: "Tasks", path: "/tasks" },
+  { icon: ListTodo, label: "To-Do", path: "/to-do" },
+  { icon: Users, label: "Clients", path: "/clients" },
+  { icon: Package, label: "Client Packages", path: "/client-packages", badge: "New" },
+  { icon: FileText, label: "Services & Packages", path: "/services" },
+  { icon: FileStack, label: "Invoices", path: "/invoices" },
+  { icon: Receipt, label: "Receipts", path: "/receipts" },
+  { icon: FileText, label: "Quotations", path: "/quotations" },
+  { icon: Wallet, label: "Expenses", path: "/expenses" },
+  { icon: Calendar, label: "Attendance", path: "/attendance" },
+  { icon: CalendarCheck, label: "Compliance Calendar", path: "/compliance-calendar" },
+  { icon: FileCheck, label: "Documents & DSC", path: "/documents" },
+  { icon: BarChart3, label: "Reports", path: "/reports" },
+  { icon: UserCog, label: "Users", path: "/users" },
+  { icon: Bell, label: "Send Notifications", path: "/notifications" },
+  { icon: Settings, label: "Settings", path: "/settings" },
+  { icon: Globe, label: "Your Website", path: "/website" },
 ]
 
 export function Sidebar({ collapsed = false }) {
+  const location = useLocation()
+
   return (
     <aside
       className={cn(
@@ -46,23 +51,28 @@ export function Sidebar({ collapsed = false }) {
         collapsed ? "w-16" : "w-56"
       )}
     >
-      <div className="flex h-14 items-center gap-2 border-b border-gray-200 px-4">
+      <Link
+        to="/"
+        className="flex h-14 items-center gap-2 border-b border-gray-200 px-4"
+      >
         <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-blue-600 text-white font-bold">
-          P
+          FG
         </div>
         {!collapsed && (
-          <span className="font-semibold text-gray-900">Practive</span>
+          <span className="font-semibold text-gray-900">ForgeGrid</span>
         )}
-      </div>
+      </Link>
       <nav className="flex-1 overflow-y-auto p-2">
         {navItems.map((item) => {
           const Icon = item.icon
+          const isActive = location.pathname === item.path
           return (
-            <button
+            <Link
               key={item.label}
+              to={item.path}
               className={cn(
                 "flex w-full items-center gap-3 rounded-lg px-3 py-2 text-sm transition-colors",
-                item.active
+                isActive
                   ? "bg-blue-50 text-blue-600"
                   : "text-gray-600 hover:bg-gray-100 hover:text-gray-900"
               )}
@@ -78,7 +88,7 @@ export function Sidebar({ collapsed = false }) {
                   )}
                 </>
               )}
-            </button>
+            </Link>
           )
         })}
       </nav>
