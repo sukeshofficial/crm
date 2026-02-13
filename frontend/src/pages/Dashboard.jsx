@@ -6,6 +6,9 @@ import { PerformanceChart } from "@/components/dashboard/PerformanceChart"
 import { ComplianceDeadlines } from "@/components/dashboard/ComplianceDeadlines"
 import { UnbilledTasksCard } from "@/components/dashboard/UnbilledTasksCard"
 import { BestPerformerCard } from "@/components/dashboard/BestPerformerCard"
+import { InvoicePendingCard } from "@/components/dashboard/InvoicePendingCard"
+import { AttendanceCard } from "@/components/dashboard/AttendanceCard"
+import { NewClientsChartCard } from "@/components/dashboard/NewClientsChartCard"
 import { TimeCard } from "@/components/dashboard/TimeCard"
 import { UsefulLinksCard } from "@/components/dashboard/UsefulLinksCard"
 import { ComplianceCalendar } from "@/components/dashboard/ComplianceCalendar"
@@ -32,6 +35,10 @@ export function Dashboard() {
                 />
               ))}
             </div>
+            <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-2">
+              <InvoicePendingCard packagesCount={24} tasksCount={137} />
+              <NewClientsChartCard />
+            </div>
             <div className="grid gap-6 lg:grid-cols-3">
               <div className="lg:col-span-2 space-y-6">
                 <div className="grid gap-6 md:grid-cols-2">
@@ -42,11 +49,14 @@ export function Dashboard() {
                   <TaskSummaryChart />
                   <PerformanceChart />
                 </div>
+                <div className="grid gap-6 md:grid-cols-2">
+                  <BestPerformerCard />
+                  <AttendanceCard />
+                </div>
               </div>
               <div className="space-y-6">
                 <ComplianceDeadlines />
                 <UnbilledTasksCard />
-                <BestPerformerCard />
               </div>
             </div>
             <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">

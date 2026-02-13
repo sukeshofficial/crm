@@ -9,7 +9,7 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import { Button } from "@/components/ui/button"
-import { mockUsersPerformance } from "@/data/mockUsersPerformance"
+import { mockAttendance } from "@/data/mockAttendance"
 import { Calendar, ChevronRight } from "lucide-react"
 
 const timeFilters = [
@@ -18,13 +18,13 @@ const timeFilters = [
   { value: "week", label: "This Week" },
 ]
 
-export function BestPerformerCard() {
+export function AttendanceCard() {
   const [filter, setFilter] = useState("all")
 
   return (
     <Card>
       <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-4">
-        <CardTitle className="text-base font-medium">Best Performer</CardTitle>
+        <CardTitle className="text-base font-medium">Attendance</CardTitle>
         <div className="flex items-center gap-1">
           <Select value={filter} onValueChange={setFilter}>
             <SelectTrigger className="h-8 w-[110px] border-0 bg-transparent shadow-none">
@@ -53,16 +53,16 @@ export function BestPerformerCard() {
                   USER
                 </th>
                 <th className="pb-3 pr-4 text-right font-medium text-gray-500">
-                  TOTAL
+                  PRESENT
                 </th>
                 <th className="pb-3 pr-4 text-right font-medium text-gray-500">
-                  COMPLETED
+                  ABSENT
                 </th>
                 <th className="pb-3 pl-4 text-right font-medium text-gray-500">%</th>
               </tr>
             </thead>
             <tbody>
-              {mockUsersPerformance.map((user) => (
+              {mockAttendance.map((user) => (
                 <tr
                   key={user.id}
                   className="border-b border-gray-50 last:border-0"
@@ -81,10 +81,10 @@ export function BestPerformerCard() {
                     </div>
                   </td>
                   <td className="py-3 pr-4 text-right font-medium text-blue-600">
-                    {user.total}
+                    {user.present}
                   </td>
                   <td className="py-3 pr-4 text-right font-medium text-blue-600">
-                    {user.completed}
+                    {user.absent}
                   </td>
                   <td className="py-3 pl-4 text-right font-medium text-blue-600">
                     {user.percent}%
