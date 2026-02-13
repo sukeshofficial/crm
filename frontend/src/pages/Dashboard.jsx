@@ -6,6 +6,10 @@ import { PerformanceChart } from "@/components/dashboard/PerformanceChart"
 import { ComplianceDeadlines } from "@/components/dashboard/ComplianceDeadlines"
 import { UnbilledTasksCard } from "@/components/dashboard/UnbilledTasksCard"
 import { BestPerformerCard } from "@/components/dashboard/BestPerformerCard"
+import { TimeCard } from "@/components/dashboard/TimeCard"
+import { UsefulLinksCard } from "@/components/dashboard/UsefulLinksCard"
+import { ComplianceCalendar } from "@/components/dashboard/ComplianceCalendar"
+import { HolidaysCard } from "@/components/dashboard/HolidaysCard"
 import { Sidebar } from "@/components/layout/Sidebar"
 import { Header } from "@/components/layout/Header"
 import { statCards } from "@/data/mockData"
@@ -44,6 +48,14 @@ export function Dashboard() {
                 <UnbilledTasksCard />
                 <BestPerformerCard />
               </div>
+            </div>
+            <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+              <div className="space-y-4">
+                <TimeCard />
+                <UsefulLinksCard />
+              </div>
+              <ComplianceCalendar />
+              <HolidaysCard />
             </div>
           </div>
         </main>
