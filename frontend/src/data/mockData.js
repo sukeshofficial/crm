@@ -120,3 +120,32 @@ export const bestPerformers = [
   { id: "bp2", name: "Neha", tasksCompleted: 38, avatar: "N" },
   { id: "bp3", name: "Vikas", tasksCompleted: 35, avatar: "V" },
 ]
+
+export const dashboardTimeStats = {
+  avgTimeSpent: "1:46 Hours",
+  subtitle: "Avg time spent to complete task in last 30 days.",
+}
+
+export const usefulLinks = [
+  { id: "ul1", label: "Website Settings" },
+  { id: "ul2", label: "Renew/Upgrade Plan" },
+  { id: "ul3", label: "Buy SMS" },
+  { id: "ul4", label: "WhatsApp API" },
+  { id: "ul5", label: "Download Website Flyer" },
+]
+
+export const complianceCalendarEntries = [
+  { id: "cc1", date: "20-05-2025", title: "GSTR 3B", subtitle: "Apr-25" },
+  { id: "cc2", date: "30-05-2025", title: "Form 11", subtitle: "FY 2024-25" },
+  { id: "cc3", date: "30-05-2025", title: "PAS-6", subtitle: "Oct-Mar 25" },
+  { id: "cc4", date: "30-05-2025", title: "TCS (27D)", subtitle: "Jan-Mar 2025" },
+  {
+    id: "cc5",
+    date: "31-05-2025",
+    title: "TDS (24Q, 26Q, 27Q)",
+    subtitle: "Jan-Mar 2025",
+  },
+  { id: "cc6", date: "07-06-2025", title: "TDS", subtitle: "May-25" },
+]
+
+export const upcomingHolidays = []
