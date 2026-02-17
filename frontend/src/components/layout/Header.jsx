@@ -1,5 +1,5 @@
-import { Search, Bell, HelpCircle, ChevronDown, Clock } from "lucide-react"
-import { Avatar, AvatarFallback } from "@/components/ui/avatar"
+import { Search, Bell, HelpCircle, ChevronDown, Clock } from "lucide-react";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 
 export function Header() {
   return (
@@ -45,5 +45,5 @@ export function Header() {
         </button>
       </div>
     </header>
-  )
+  );
 }

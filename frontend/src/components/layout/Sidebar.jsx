@@ -1,5 +1,5 @@
-import { Link, useLocation } from "react-router-dom"
-import { cn } from "@/lib/utils"
+import { Link, useLocation } from "react-router-dom";
+import { cn } from "@/lib/utils";
 import {
   LayoutDashboard,
   CheckSquare,
@@ -18,37 +18,46 @@ import {
   Bell,
   Settings,
   Globe,
-} from "lucide-react"
+} from "lucide-react";
 
 const navItems = [
   { icon: LayoutDashboard, label: "Dashboard", path: "/" },
   { icon: CheckSquare, label: "Tasks", path: "/tasks" },
   { icon: ListTodo, label: "To-Do", path: "/to-do" },
   { icon: Users, label: "Clients", path: "/clients" },
-  { icon: Package, label: "Client Packages", path: "/client-packages", badge: "New" },
+  {
+    icon: Package,
+    label: "Client Packages",
+    path: "/client-packages",
+    badge: "New",
+  },
   { icon: FileText, label: "Services & Packages", path: "/services" },
   { icon: FileStack, label: "Invoices", path: "/invoices" },
   { icon: Receipt, label: "Receipts", path: "/receipts" },
   { icon: FileText, label: "Quotations", path: "/quotations" },
   { icon: Wallet, label: "Expenses", path: "/expenses" },
   { icon: Calendar, label: "Attendance", path: "/attendance" },
-  { icon: CalendarCheck, label: "Compliance Calendar", path: "/compliance-calendar" },
+  {
+    icon: CalendarCheck,
+    label: "Compliance Calendar",
+    path: "/compliance-calendar",
+  },
   { icon: FileCheck, label: "Documents & DSC", path: "/documents" },
   { icon: BarChart3, label: "Reports", path: "/reports" },
   { icon: UserCog, label: "Users", path: "/users" },
   { icon: Bell, label: "Send Notifications", path: "/notifications" },
   { icon: Settings, label: "Settings", path: "/settings" },
   { icon: Globe, label: "Your Website", path: "/website" },
-]
+];
 
 export function Sidebar({ collapsed = false }) {
-  const location = useLocation()
+  const location = useLocation();
 
   return (
     <aside
       className={cn(
         "flex flex-col border-r border-gray-200 bg-white transition-all",
-        collapsed ? "w-16" : "w-56"
+        collapsed ? "w-16" : "w-56",
       )}
     >
       <Link
@@ -64,8 +73,8 @@ export function Sidebar({ collapsed = false }) {
       </Link>
       <nav className="flex-1 overflow-y-auto p-2">
         {navItems.map((item) => {
-          const Icon = item.icon
-          const isActive = location.pathname === item.path
+          const Icon = item.icon;
+          const isActive = location.pathname === item.path;
           return (
             <Link
               key={item.label}
@@ -74,7 +83,7 @@ export function Sidebar({ collapsed = false }) {
                 "flex w-full items-center gap-3 rounded-lg px-3 py-2 text-sm transition-colors",
                 isActive
                   ? "bg-blue-50 text-blue-600"
-                  : "text-gray-600 hover:bg-gray-100 hover:text-gray-900"
+                  : "text-gray-600 hover:bg-gray-100 hover:text-gray-900",
               )}
             >
               <Icon className="h-5 w-5 shrink-0" />
@@ -89,9 +98,9 @@ export function Sidebar({ collapsed = false }) {
                 </>
               )}
             </Link>
-          )
+          );
         })}
       </nav>
     </aside>
-  )
+  );
 }
